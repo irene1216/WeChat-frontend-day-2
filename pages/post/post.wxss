@@ -1,0 +1,10 @@
+/* pages/post/post.wxss */
+.post {
+  margin: 500rpx 30rpx;
+  font-size: larger;
+}
+
+input {
+  background-color: rgba(120, 120, 120, 0.3);
+  padding: 30rpx;
+}

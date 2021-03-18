@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="background">
+  <view wx:if="{{user == 'irene'}}" class="title">I love Coding!</view>
+  <view  wx:else class="title">Fxxk my code!</view>
+  <view class="subheader">A little place for le wagon students and instructors to complaint about their codes🤬</view>
+  <view class="button-wrapper">
+    <button style="border-color: black; border-width: 5rpx; border-style: solid;" bindtap="navigateToStories" class="submit-button" >Submit a story</button>
+  </view>
+</view>

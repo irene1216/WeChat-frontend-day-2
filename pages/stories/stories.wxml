@@ -1,0 +1,8 @@
+<!--pages/stories/stories.wxml-->
+<view class="stories">
+  <view class="header">Fxxk my code moments...</view>
+  <view wx:for="{{stories}}" wx:for-item="story" class="card">
+    <view class="title">{{story.title}}</view>
+    <view class="author">🗡{{story.author}}</view>
+  </view>
+</view>

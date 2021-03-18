@@ -1,0 +1,17 @@
+<!--pages/post/post.wxml-->
+<view class="post">
+  <view class="title">Submit a new Story!!</view>
+  <form action="submit" bindsubmit="handleFormSubmit">
+    <!-- form field for title -->
+    <view class="form-group">
+      <view class="label">Title</view>
+      <input type="text" name="title" />
+    </view>
+<!-- form field for author -->
+    <view class="form-group">
+      <view class="label">Author</view>
+      <input type="text" name="author" />
+    </view>
+    <button form-type="submit">Submit</button>
+  </form>
+</view>
