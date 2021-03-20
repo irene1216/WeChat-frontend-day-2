@@ -2,7 +2,9 @@
   "pages":[
     "pages/index/index",
     "pages/stories/stories",
-    "pages/post/post"
+    "pages/post/post",
+    "pages/test/test",
+    "pages/show/show"
   ],
   "tabBar": {
     "color": "#CDCDCD",
@@ -18,6 +20,12 @@
       "text": "Stories",
       "iconPath": "images/stories_grey.png",
       "selectedIconPath": "images/stories_black.png"
+    },
+    {
+      "pagePath": "pages/test/test",
+      "text": "Test",
+      "iconPath": "images/help_grey.png",
+      "selectedIconPath": "images/help_black.png"
     }]
   },
   "window":{

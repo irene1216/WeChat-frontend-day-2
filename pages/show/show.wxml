@@ -1,0 +1,7 @@
+<!--pages/show/show.wxml-->
+<view class="content">{{story.text}}</view>
+<view class="author">🔪 {{story.name}}</view>
+
+<button bindtap="update">Edit</button>
+<button bindtap="delete">Delete 🗑</button>
+<button bindtap="back">Go Back 🔙</button>

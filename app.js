@@ -6,7 +6,8 @@ App({
     test: "This is some data in globalData"
   },
   onLaunch(){
-    this.globalData.stories = wx.getStorageSync('stories')
+    let stories = wx.getStorageSync('stories')
+    stories > 0 ? this.globalData.stories = stories : this.globalData.stories = []
     let page = this
     wx.getStorage({
       key: 'stories',

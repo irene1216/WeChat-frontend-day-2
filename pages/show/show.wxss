@@ -1,9 +1,11 @@
-/* pages/post/post.wxss */
+/* pages/show/show.wxss */
 page {
+  margin: 500rpx 60rpx;
   width: 80vw;
   font-size: large;
   font-weight: 100;
-  padding: 500rpx 50rpx 60rpx;
+  height: 100vh;
+  padding: 100rpx 50rpx 60rpx;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%), url('https://image.freepik.com/free-vector/young-angry-man-mad-expression-vector-illustration_76775-255.jpg') no-repeat center;
   background-size: cover;
   /* background-position-x: -50vw; */
@@ -12,19 +14,14 @@ page {
   justify-content: flex-start;  
 }
 
-.title {
+.content {
+  font-size: xx-large;
   text-align: center;
-  font-weight: 400;
-  padding: 30rpx;
+  margin: 50rpx 0;
 }
 
-.post {
-  font-size: larger;
-}
-
-input {
-  background-color: rgba(120, 120, 120, 0.3);
-  padding: 30rpx;
+.author {
+  margin: 50rpx 0;
 }
 
 button {
@@ -35,3 +32,4 @@ button {
 button:first-of-type {
   margin-top: 200rpx;
 }
+

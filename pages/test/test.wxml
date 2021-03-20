@@ -1,0 +1,8 @@
+<!--pages/test/test.wxml-->
+<view>{{name}} is {{age}} year-old</view>
+<button bindtap="ageAshkan">Age {{name}}!</button>
+
+<view wx:for="{{favoriteFood}}" wx:for-item="food" wx:for-index="index">{{index+1}}. {{food}}</view>
+
+<view wx:if="{{showBurger}}">🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔🍔</view>
+<button bindtap="giveHimFood">Give Ashkan a 🍔</button>

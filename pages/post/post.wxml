@@ -1,17 +1,19 @@
 <!--pages/post/post.wxml-->
 <view class="post">
-  <view class="title">Submit a new Story!!</view>
-  <form action="submit" bindsubmit="handleFormSubmit">
+  <view wx:if="{{id > 0}}" class="title">Edit story</view>
+  <view wx:else class="title">Submit a new Story!!</view>
+  <form action="submit" bindsubmit="{{ id > 0 ? 'editStory' : 'createStory'}}">
     <!-- form field for title -->
     <view class="form-group">
       <view class="label">Title</view>
-      <input type="text" name="title" />
+      <input type="text" value="{{story.text}}" name="text" />
     </view>
 <!-- form field for author -->
     <view class="form-group">
       <view class="label">Author</view>
-      <input type="text" name="author" />
+      <input type="text" value="{{story.name}}" name="name" />
     </view>
-    <button form-type="submit">Submit</button>
+    <button  form-type="submit">Submit</button>
+    <button bindtap="back">Go Back 🔙</button>
   </form>
 </view>
