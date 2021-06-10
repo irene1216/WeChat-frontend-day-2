@@ -1,12 +1,8 @@
 <!--pages/stories/stories.wxml-->
 <view class="stories">
   <view class="header">Fxxk my code moments...</view>
-  <view wx:for="{{stories}}" wx:for-item="story" data-index="{{index}}" data-id="{{story.id}}" data-ashkan="hahaha" bindtap="tapOnCard" class="card {{ activeStoryIndex == index ? 'active' : ''}}">
+  <view wx:for="{{stories}}" wx:for-item="story" data-index="{{index}}" data-id="{{story.id}}" bindtap="tapOnCard" class="card">
     <view class="title">{{story.text}}</view>
     <view class="author">🗡{{story.name}}</view>
-   
-    <navigator url="/pages/show/show?id={{story.id}}" data-id="{{story.id}}" size="mini" bindtap="goToShow" >Read full story ➡️</navigator>
-
-    <!-- <button data-index="{{index}}" bindtap="deleteStory" >delete</button> -->
   </view>
 </view>

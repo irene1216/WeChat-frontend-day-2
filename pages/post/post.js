@@ -1,18 +1,30 @@
 const globalData = getApp().globalData
 // pages/post/post.js
 Page({
-  onLoad(options){
-    let id = options.id
-    wx.request({
-      url: `https://fml.shanghaiwogeng.com/api/v1/stories/${id}`,
-      success: (res)=>{
-        this.setData({
-          story: res.data,
-          id: id
-        })
-      }
+  onLoad: function (options) {
+    // Currently we find the story with the index that got pass over from the options
+
+    this.setData({
+      story: globalData.stories[options.index]
     })
+    // wx.request({
+    //   url: `http://localhost:3000/api/v1/stories/${options.id}`,
+    //   success: (res)=>{
+    //     console.log(res)
+    //     this.setData({
+    //       story: res.data
+    //     })
+    //   }
+    // })
+
+    // However, we want to find the story with the id 
+    // We can do something like :
+    // wx.request({
+    //   url: `http://localhost:3000/api/v1/stories/${options.id}`,
+    //   // ........
+    // })
   },
+
 
   back: function(){
     wx.navigateBack({
@@ -20,44 +32,39 @@ Page({
     })
   },
 
-  editStory: function(event){
-    const story = event.detail.value
-    console.log("?????????????????",story)
-    // send the data to our api end 
-    wx.request({
-      url: `https://fml.shanghaiwogeng.com/api/v1/stories/${this.data.id}`,
-      method: "PUT",
-      data: story,
-      success: (res)=>{
-        console.log("posting to the backend", res)
-        wx.switchTab({
-          url: '/pages/stories/stories',
-        })
-      }, 
-      fail: (res)=>{
-        console.log("not success", res)
-      }
+  editStory: function(e){
+    let story = e.detail.value
+    globalData.stories[this.options.index] = story
+    wx.navigateTo({
+      url: `/pages/show/show?index=${this.options.index}`,
     })
+
+    // We want to edit the story with our UPDATE story api endpoint
+    // We can do sth like...
+    // wx.request({
+    //   url: `http://localhost:3000/api/v1/stories/${this.options.id}`,
+    //   method: 'PUT',
+    //   data: .....
+    // })
   },
 
-  createStory: function(event){
-    const story = event.detail.value
-    console.log(story)
-    // send the data to our api end 
-    wx.request({
-      url: 'https://fml.shanghaiwogeng.com/api/v1/stories',
-      method: "POST",
-      data: story,
-      success: (res)=>{
-        console.log("posting to the backend", res)
-        wx.switchTab({
-          url: '/pages/stories/stories',
-        })
-      }, 
-      fail: (res)=>{
-        console.log("not success", res)
-      }
+  createStory: function(e){
+    // currently we push the new story option that we get from the form submit event to globaldata's stories array
+    // Then redirect back to the stories page
+    let story = e.detail.value
+
+    globalData.stories.push(story)
+    wx.switchTab({
+      url: '/pages/stories/stories',
     })
+
+    // However, we want to do a POST request to the stories create api endpoint
+    // We can do sth like...
+    // wx.request({
+    //   url: 'http://localhost:3000/api/v1/stories',
+    //   method: 'POST',
+    //   data: .....
+    // })
   }
 })
 

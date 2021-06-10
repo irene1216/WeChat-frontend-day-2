@@ -2,45 +2,33 @@
 const globalData = getApp().globalData
 
 Page({
-  data: {
-    stories: [],
-    // activeStoryIndex: ''
-  },
-
   onShow(){
-    // this.setData({
-    //   stories: wx.getStorageSync('stories')
-    // })
-    wx.request({
-      url: 'https://fml.shanghaiwogeng.com/api/v1/stories',
-      success: (res)=>{
-        console.log("testing", res.data)
-        this.setData({
-          stories: res.data.reverse(),
-          activeStoryIndex: "no"
-        })
-      }
-    })
+  // Currently we get the array of stories from our app.js globaldata
+  // however we want to get the all of the stories from our stories API
+  
+  this.setData({
+    stories: globalData.stories
+  })
+
+  // we can do sth like wx.request({
+    // url: 'url',
+    // method: "GET",
+    // succuess: (res) => {
+      // console
+    // }
+  // })
   },
 
   tapOnCard: function(event){
-    console.log(event)
-    // get the new active id from tapping the card
-    let index = event.currentTarget.dataset.index
-    let id = event.currentTarget.dataset.id
-    // set index to activeStoryIndex
-    this.setData({
-      activeStoryIndex: index
-    })
-  },
+  // currently we pass over the index of the story to the show page
+  // so that we can find the story from the array on /pages/show/show's onload function 
 
+  let index = event.currentTarget.dataset.index
+  wx.navigateTo({
+    url: `/pages/show/show?index=${index}`,
+  })
 
-  // deleteStory(event){
-  //   let index = event.currentTarget.dataset.index
-  //   console.log(index)
-  //   this.data.stories.splice(index, 1)
-  //   this.setData({
-  //     stories: this.data.stories
-  //   })
-  
+  // However, we want to be able to get the *id* of the story this time and pass it to the show page with options
+  // and the we can find the story with the /GET stories/:id api endpoint
+  }
 })
