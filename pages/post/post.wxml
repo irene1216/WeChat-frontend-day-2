@@ -1,8 +1,8 @@
 <!--pages/post/post.wxml-->
 <view class="post">
-  <view wx:if="{{id > 0}}" class="title">Edit story</view>
+  <view wx:if="{{story.id > 0}}" class="title">Edit story</view>
   <view wx:else class="title">Submit a new Story!!</view>
-  <form action="submit" bindsubmit="{{ id > 0 ? 'editStory' : 'createStory'}}">
+  <form action="submit" bindsubmit="{{ story.id > 0 ? 'editStory' : 'createStory'}}">
     <!-- form field for title -->
     <view class="form-group">
       <view class="label">Title</view>

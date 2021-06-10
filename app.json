@@ -9,9 +9,10 @@
   "tabBar": {
     "color": "#CDCDCD",
     "selectedColor": "#000000",
-    "list": [{
+    "list": [
+    {
       "pagePath": "pages/index/index",
-      "text": "Index",
+      "text": "Submit",
       "iconPath": "images/home_grey.png",
       "selectedIconPath": "images/home_black.png"
     },
@@ -20,12 +21,6 @@
       "text": "Stories",
       "iconPath": "images/stories_grey.png",
       "selectedIconPath": "images/stories_black.png"
-    },
-    {
-      "pagePath": "pages/test/test",
-      "text": "Test",
-      "iconPath": "images/help_grey.png",
-      "selectedIconPath": "images/help_black.png"
     }]
   },
   "window":{

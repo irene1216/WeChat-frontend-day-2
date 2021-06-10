@@ -1,47 +1,34 @@
 // pages/show/show.js
+const globalData = getApp().globalData
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
-
+    story: {
+      name: "irene",
+      text: "Forgot to git add git comit..."
+    }
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
   onLoad: function (options) {
-    console.log("showpage", options.id)
-    let id = options.id
+    // this.setData({
+    //   story: globalData.stories[options.index]
+    // })
     wx.request({
-      url: `https://fml.shanghaiwogeng.com/api/v1/stories/${id}`,
+      url: `http://localhost:3000/api/v1/stories/${options.id}`,
       success: (res)=>{
-        console.log("geting one story", res)
+        console.log(res)
         this.setData({
-          story: res.data,
-          id: id
+          story: res.data
         })
       }
     })
   },
 
   delete(){
-    wx.request({
-      url: `https://fml.shanghaiwogeng.com/api/v1/stories/${this.data.id}`,
-      method: 'DELETE',
-      success: (res)=>{
-        console.log(res)
-        wx.switchTab({
-          url: '/pages/stories/stories',
-        })
-      }
-    })
   },
 
   update(){
     wx.navigateTo({
-      url: `/pages/post/post?id=${this.data.id}`,
+      url: `/pages/post/post?id=${this.data.story.id}`,
     })
   },
 
